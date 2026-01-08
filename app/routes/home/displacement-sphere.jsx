@@ -32,14 +32,21 @@ export const DisplacementSphere = props => {
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          minHeight: window.innerHeight,
-          minWidth: window.innerWidth,
+          minHeight: 200,
+          minWidth: 200,
           scale: 1.0,
           color1: theme === 'dark' ? 0x098ad4 : 0xb9e5ff,
           color2: theme === 'dark' ? 0x35e6f2 : 0xb9e5ff,
           size: 3.0,
           speed: 1.4,
         });
+
+        // Force resize after initialization
+        setTimeout(() => {
+          if (vantaEffect.current && vantaEffect.current.resize) {
+            vantaEffect.current.resize();
+          }
+        }, 100);
 
         setIsLoaded(true);
       } catch (error) {

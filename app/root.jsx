@@ -20,6 +20,8 @@ import styles from './root.module.css';
 import './reset.module.css';
 import './global.module.css';
 
+const basePath = import.meta.env.BASE_URL || '/';
+
 export const links = () => [
   {
     rel: 'preload',
@@ -35,10 +37,10 @@ export const links = () => [
     type: 'font/woff2',
     crossOrigin: '',
   },
-  { rel: 'manifest', href: '/Portifolio/manifest.json' },
-  { rel: 'icon', href: '/Portifolio/logo-black.png', type: 'image/png' },
-  { rel: 'apple-touch-icon', href: '/Portifolio/logo-black.png', sizes: '180x180' },
-  { rel: 'author', href: '/Portifolio/humans.txt', type: 'text/plain' },
+  { rel: 'manifest', href: `${basePath}manifest.json` },
+  { rel: 'icon', href: `${basePath}logo-black.png`, type: 'image/png' },
+  { rel: 'apple-touch-icon', href: `${basePath}logo-black.png`, sizes: '180x180' },
+  { rel: 'author', href: `${basePath}humans.txt`, type: 'text/plain' },
 ];
 
 export function HydrateFallback() {
