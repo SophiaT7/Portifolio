@@ -38,6 +38,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Create index.html for SPA
+        run: |
+          cp ./build/client/index.html ./build/client/index.html 2>/dev/null || echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0;url=/Portifolio/"></head><body></body></html>' > ./build/client/index.html
+          cp ./build/client/index.html ./build/client/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

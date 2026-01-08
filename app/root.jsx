@@ -4,16 +4,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useFetcher,
-  useLoaderData,
   useNavigation,
   useRouteError,
 } from '@remix-run/react';
-import { createCookieSessionStorage, json } from '@remix-run/cloudflare';
 import { ThemeProvider, themeStyles } from '~/components/theme-provider';
 import GothamBook from '~/assets/fonts/gotham-book.woff2';
 import GothamMedium from '~/assets/fonts/gotham-medium.woff2';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Error } from '~/layouts/error';
 import { VisuallyHidden } from '~/components/visually-hidden';
 import { Navbar } from '~/layouts/navbar';
@@ -38,57 +35,47 @@ export const links = () => [
     type: 'font/woff2',
     crossOrigin: '',
   },
-  { rel: 'manifest', href: '/manifest.json' },
-  { rel: 'icon', href: '/logo-black.png', type: 'image/png' },
-  { rel: 'apple-touch-icon', href: '/logo-black.png', sizes: '180x180' },
-  { rel: 'author', href: '/humans.txt', type: 'text/plain' },
+  { rel: 'manifest', href: '/Portifolio/manifest.json' },
+  { rel: 'icon', href: '/Portifolio/logo-black.png', type: 'image/png' },
+  { rel: 'apple-touch-icon', href: '/Portifolio/logo-black.png', sizes: '180x180' },
+  { rel: 'author', href: '/Portifolio/humans.txt', type: 'text/plain' },
 ];
 
-export const loader = async ({ request, context }) => {
-  const { url } = request;
-  const { pathname } = new URL(url);
-  const pathnameSliced = pathname.endsWith('/') ? pathname.slice(0, -1) : url;
-  const canonicalUrl = `${config.url}${pathnameSliced}`;
-
-  const { getSession, commitSession } = createCookieSessionStorage({
-    cookie: {
-      name: '__session',
-      httpOnly: true,
-      maxAge: 604_800,
-      path: '/',
-      sameSite: 'lax',
-      secrets: [context.cloudflare.env.SESSION_SECRET || ' '],
-      secure: true,
-    },
-  });
-
-  const session = await getSession(request.headers.get('Cookie'));
-  const theme = session.get('theme') || 'dark';
-
-  return json(
-    { canonicalUrl, theme },
-    {
-      headers: {
-        'Set-Cookie': await commitSession(session),
-      },
-    }
+export function HydrateFallback() {
+  return (
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#032a45" />
+        <meta name="color-scheme" content="dark light" />
+        <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
+        <Meta />
+        <Links />
+      </head>
+      <body data-theme="dark">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+          Loading...
+        </div>
+        <Scripts />
+      </body>
+    </html>
   );
-};
+}
 
 export default function App() {
-  let { canonicalUrl, theme } = useLoaderData();
-  const fetcher = useFetcher();
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') || 'dark';
+    }
+    return 'dark';
+  });
   const { state } = useNavigation();
 
-  if (fetcher.formData?.has('theme')) {
-    theme = fetcher.formData.get('theme');
-  }
-
   function toggleTheme(newTheme) {
-    fetcher.submit(
-      { theme: newTheme ? newTheme : theme === 'dark' ? 'light' : 'dark' },
-      { action: '/api/set-theme', method: 'post' }
-    );
+    const nextTheme = newTheme ? newTheme : theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    localStorage.setItem('theme', nextTheme);
   }
 
   useEffect(() => {
@@ -103,8 +90,7 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Theme color doesn't support oklch so I'm hard coding these hexes for now */}
-        <meta name="theme-color" content={theme === 'dark' ? '#111' : '#F2F2F2'} />
+        <meta name="theme-color" content={theme === 'dark' ? '#032a45' : '#b9e5ff'} />
         <meta
           name="color-scheme"
           content={theme === 'light' ? 'light dark' : 'dark light'}
@@ -112,7 +98,6 @@ export default function App() {
         <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
         <Meta />
         <Links />
-        <link rel="canonical" href={canonicalUrl} />
       </head>
       <body data-theme={theme}>
         <ThemeProvider theme={theme} toggleTheme={toggleTheme}>
