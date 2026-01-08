@@ -1,7 +1,7 @@
-import sliceBackgroundLarge from '~/assets/slice-background-large.jpg';
-import sliceBackgroundPlaceholder from '~/assets/slice-background-placeholder.jpg';
-import sliceBackground from '~/assets/slice-background.jpg';
 import { Footer } from '~/components/footer';
+
+const basePath = import.meta.env.BASE_URL || '/';
+const frotaBackground = `${basePath}frotaProjcImg.jpg`;
 import {
   ProjectBackground,
   ProjectContainer,
@@ -30,11 +30,11 @@ export const Frota = () => {
     <Fragment>
       <ProjectContainer className={styles.slice}>
         <ProjectBackground
-          src={sliceBackground}
-          srcSet={`${sliceBackground} 1280w, ${sliceBackgroundLarge} 2560w`}
-          width={1280}
-          height={800}
-          placeholder={sliceBackgroundPlaceholder}
+          src={frotaBackground}
+          srcSet={`${frotaBackground} 2560w`}
+          width={2560}
+          height={1700}
+          placeholder={frotaBackground}
           opacity={0.8}
         />
         <ProjectHeader
