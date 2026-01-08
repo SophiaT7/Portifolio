@@ -1,11 +1,14 @@
 .canvas {
   position: absolute;
   width: 100vw;
+  height: 100vh;
   inset: 0;
   opacity: 0;
   transition-property: opacity;
   transition-duration: 3s;
   transition-timing-function: var(--bezierFastoutSlowin);
+  mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
 
   &[data-visible='true'] {
     opacity: 1;

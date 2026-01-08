@@ -39,10 +39,8 @@ export const links = () => [
     crossOrigin: '',
   },
   { rel: 'manifest', href: '/manifest.json' },
-  { rel: 'icon', href: '/favicon.ico' },
-  { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
-  { rel: 'icon', href: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
-  { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', sizes: '180x180' },
+  { rel: 'icon', href: '/logo-black.png', type: 'image/png' },
+  { rel: 'apple-touch-icon', href: '/logo-black.png', sizes: '180x180' },
   { rel: 'author', href: '/humans.txt', type: 'text/plain' },
 ];
 

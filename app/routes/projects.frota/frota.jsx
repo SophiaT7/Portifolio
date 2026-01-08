@@ -12,14 +12,14 @@ import {
   ProjectSectionText,
   ProjectTextRow,
 } from '~/layouts/project';
-import { Fragment } from 'react';
+import { Fragment } from 'react';``
 import { baseMeta } from '~/utils/meta';
 import styles from './slice.module.css';
 
-const title = 'Sistema de Gerenciamento de Veículos - FROTA';
+const title = 'Vehicle Management System - Fleet';
 const description =
-  'Sistema completo para controle e gestão de frotas de veículos com funcionalidades de cadastro, manutenção, abastecimento e geração de relatórios gerenciais.';
-const roles = ['Desenvolvimento Full Stack', 'Backend', 'Frontend', 'Banco de Dados'];
+  'Complete system for controlling and managing vehicle fleets with features for registration, usage tracking, and generating management reports.';
+const roles = ['Full Stack Development', 'Backend', 'Frontend', 'DataBase'];
 
 export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
@@ -46,16 +46,14 @@ export const Frota = () => {
         
         <ProjectSection padding="top">
           <ProjectSectionContent>
-            <ProjectSectionHeading>Sobre o Projeto</ProjectSectionHeading>
+            <ProjectSectionHeading>The Project</ProjectSectionHeading>
             <ProjectSectionText>
-              O Sistema FROTA foi desenvolvido para solucionar os desafios do gerenciamento 
-              de frotas de veículos, oferecendo uma plataforma centralizada para controle 
-              completo de todas as operações relacionadas aos veículos da organização.
+              The Fleet System was developed to solve the challenges of managing vehicle fleets, 
+              offering a centralized platform for complete control of all operations related to the organization's vehicles.
             </ProjectSectionText>
             <ProjectSectionText>
-              O sistema permite o cadastro detalhado de veículos, motoristas e manutenções, 
-              além de fornecer dashboards interativos com métricas essenciais para tomada 
-              de decisões estratégicas.
+              The system allows for detailed registration of vehicles and drivers, 
+              including usage history so that each and every activity is recorded. 
             </ProjectSectionText>
           </ProjectSectionContent>
         </ProjectSection>
@@ -63,17 +61,12 @@ export const Frota = () => {
         <ProjectSection light>
           <ProjectSectionContent>
             <ProjectTextRow>
-              <ProjectSectionHeading>Funcionalidades Principais</ProjectSectionHeading>
+              <ProjectSectionHeading>Main Features</ProjectSectionHeading>
               <ProjectSectionText>
-                O sistema oferece cadastro completo de veículos com informações detalhadas 
-                como placa, modelo, ano, quilometragem e status. O módulo de manutenções 
-                permite o registro de manutenções preventivas e corretivas, com histórico 
-                completo e alertas automáticos.
-              </ProjectSectionText>
-              <ProjectSectionText>
-                Além disso, inclui controle de abastecimentos com registro de consumo e custos, 
-                gestão de documentação veicular (IPVA, seguro, licenciamento), e sistema de 
-                relatórios gerenciais com gráficos e análises de desempenho da frota.
+                The system offers complete vehicle registration with detailed information such as 
+                license plate, model, year, and status. 
+                The maintenance module allows for the recording of vehicle pick-up and drop-off, 
+                with a complete history and automatic alerts.
               </ProjectSectionText>
             </ProjectTextRow>
           </ProjectSectionContent>
@@ -81,56 +74,23 @@ export const Frota = () => {
 
         <ProjectSection>
           <ProjectSectionContent>
-            <ProjectSectionHeading>Tecnologias Utilizadas</ProjectSectionHeading>
+            <ProjectSectionHeading>Main Technologies</ProjectSectionHeading>
             <ProjectSectionText>
-              O projeto foi desenvolvido utilizando tecnologias modernas e robustas. 
-              No backend, foi implementado com Node.js e Express, garantindo alta performance 
-              e escalabilidade. O banco de dados relacional MySQL foi escolhido para 
-              armazenamento seguro e eficiente dos dados.
+              The project was developed in Java, implementing JavaFX for the presentation layer (GUI). 
+              Data storage was performed using MongoDB, a document-oriented NoSQL database, 
+              managed via MongoDB Compass for viewing and manipulating the collections.
             </ProjectSectionText>
-            <ProjectSectionText>
-              No frontend, foram utilizadas tecnologias web modernas (HTML5, CSS3, JavaScript) 
-              para criar uma interface intuitiva e responsiva, permitindo acesso tanto em 
-              desktops quanto em dispositivos móveis.
-            </ProjectSectionText>
-          </ProjectSectionContent>
-        </ProjectSection>
-
-        <ProjectSection light>
-          <ProjectSectionContent>
-            <ProjectTextRow>
-              <ProjectSectionHeading>Módulos do Sistema</ProjectSectionHeading>
-              <ProjectSectionText>
-                O sistema é dividido em módulos integrados: Cadastro de Veículos permite 
-                gerenciar toda a frota com informações detalhadas e fotos dos veículos. 
-                O módulo de Manutenções controla todo o histórico de manutenções preventivas 
-                e corretivas, com alertas de vencimento.
-              </ProjectSectionText>
-              <ProjectSectionText>
-                O Controle de Abastecimento registra todos os abastecimentos realizados, 
-                calcula consumo médio e identifica anomalias. O módulo de Relatórios gera 
-                análises completas sobre custos operacionais, desempenho da frota e 
-                indicadores de manutenção.
-              </ProjectSectionText>
-            </ProjectTextRow>
           </ProjectSectionContent>
         </ProjectSection>
 
         <ProjectSection>
           <ProjectSectionContent>
-            <ProjectSectionHeading>Resultados e Benefícios</ProjectSectionHeading>
+            <ProjectSectionHeading>Results</ProjectSectionHeading>
             <ProjectSectionText>
-              O Sistema FROTA proporciona redução significativa de custos operacionais 
-              através do controle preciso de manutenções e consumo de combustível. 
-              A centralização das informações elimina processos manuais e reduz erros, 
-              enquanto os relatórios gerenciais fornecem insights valiosos para otimização 
-              da frota.
-            </ProjectSectionText>
-            <ProjectSectionText>
-              A plataforma aumenta a eficiência operacional ao automatizar processos de 
-              controle e permitir o acesso rápido ao histórico completo de cada veículo, 
-              facilitando a tomada de decisões estratégicas sobre renovação, manutenção 
-              e distribuição da frota.
+              The Fleet System provides significant reductions in operational costs
+              through precise usage control.
+              Centralized information eliminates manual processes and reduces errors,
+              while management reports provide valuable insights for fleet optimization, focusing on driver control and records. 
             </ProjectSectionText>
           </ProjectSectionContent>
         </ProjectSection>

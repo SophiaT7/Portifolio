@@ -148,8 +148,8 @@ export const Home = () => {
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={1}
-        title="Sistema de Gerenciamento de Veículos - FROTA"
-        description="Sistema completo para controle e gestão de frotas de veículos com cadastro, manutenção e relatórios."
+        title="Vehicle Management System - Fleet"
+        description="Complete system for controlling and managing vehicle fleets with features for registration, usage tracking, and generating management reports."
         buttonText="View project"
         buttonLink="/projects/frota"
         model={{
