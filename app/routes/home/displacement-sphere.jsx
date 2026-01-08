@@ -1,15 +1,13 @@
 import { useTheme } from '~/components/theme-provider';
 import { Transition } from '~/components/transition';
-import { useReducedMotion } from 'framer-motion';
-import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
+import { useEffect, useRef, useState } from 'react';
 import styles from './displacement-sphere.module.css';
 
 export const DisplacementSphere = props => {
   const { theme } = useTheme();
   const containerRef = useRef();
   const vantaEffect = useRef(null);
-  const reduceMotion = useReducedMotion();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -19,6 +17,7 @@ export const DisplacementSphere = props => {
 
     const initVanta = async () => {
       try {
+        const THREE = await import('three');
         const CELLS = (await import('vanta/dist/vanta.cells.min')).default;
 
         if (!isMounted || !containerRef.current) return;
@@ -41,6 +40,8 @@ export const DisplacementSphere = props => {
           size: 3.0,
           speed: 1.4,
         });
+
+        setIsLoaded(true);
       } catch (error) {
         console.error('Vanta init error:', error);
       }
@@ -55,7 +56,7 @@ export const DisplacementSphere = props => {
         vantaEffect.current = null;
       }
     };
-  }, [theme, reduceMotion]);
+  }, [theme]);
 
   return (
     <Transition in timeout={3000} nodeRef={containerRef}>
