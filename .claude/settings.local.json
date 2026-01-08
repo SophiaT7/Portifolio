@@ -6,7 +6,10 @@
       "Bash(git push)",
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(cat:*)",
+      "Bash(npm run deploy:*)",
+      "Bash(npx wrangler login)"
     ]
   }
 }
