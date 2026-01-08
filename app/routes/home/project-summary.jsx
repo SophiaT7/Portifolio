@@ -66,17 +66,6 @@ export function ProjectSummary({
   function renderDetails(visible) {
     return (
       <div className={styles.details}>
-        <div aria-hidden className={styles.index}>
-          <Divider
-            notchWidth="64px"
-            notchHeight="8px"
-            collapsed={!visible}
-            collapseDelay={1000}
-          />
-          <span className={styles.indexNumber} data-visible={visible}>
-            {indexText}
-          </span>
-        </div>
         <Heading
           level={3}
           as="h2"

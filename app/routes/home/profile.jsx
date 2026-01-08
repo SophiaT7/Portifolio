@@ -50,11 +50,10 @@ export const Profile = ({ id, visible, sectionRef }) => {
               <ProfileText visible={visible} titleId={titleId} />
               <div className={styles.buttonGroup} data-visible={visible}>
                 <Button
-                  secondary
                   className={styles.button}
                   data-visible={visible}
                   href="/contact"
-                  icon="send"
+                  iconEnd="send"
                 >
                   Send me a message
                 </Button>

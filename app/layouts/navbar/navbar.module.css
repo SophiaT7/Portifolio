@@ -71,31 +71,7 @@
     &:hover,
     &:active,
     &[aria-current='page'] {
-      color: var(--textBody);
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      inset-inline-start: var(--spaceS);
-      inset-inline-end: var(--spaceS);
-      block-size: 4px;
-      background: var(--accent);
-      transform: scaleY(0) translateZ(0);
-      transform-origin: bottom;
-    }
-
-    @media (--mediaUseMotion) {
-      &::after {
-        transition: transform var(--durationM) var(--bezierFastoutSlowin);
-      }
-    }
-
-    &:hover::after,
-    &:active::after,
-    &[aria-current='page']::after {
-      transform: scaleY(1) translateZ(0);
-      transform-origin: top;
+      color: var(--accent);
     }
   }
 
@@ -182,7 +158,7 @@
     color: var(--textBody);
     padding: var(--spaceL);
     opacity: 0;
-    transition-property: opacity;
+    transition-property: opacity, color;
     transition-duration: var(--durationS);
     transition-timing-function: var(--bezierFastoutSlowin);
     transition-delay: var(--transitionDelay);
@@ -190,7 +166,7 @@
     top: calc(var(--spaceM) * -1);
 
     @media (--mediaUseMotion) {
-      transition-property: transform, opacity;
+      transition-property: transform, opacity, color;
       transform: translate3d(0, calc(var(--spaceXL) * -1), 0);
     }
 
@@ -202,29 +178,11 @@
       --headerNavFontSize: calc((18 / 16) * 1rem);
     }
 
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: var(--space3XL);
-      left: var(--space3XL);
-      height: 4px;
-      background: var(--accent);
-      transform: scaleX(0) translateY(-1px);
-      transform-origin: right;
-    }
-
-    @media (--mediaUseMotion) {
-      &::after {
-        transition: transform var(--durationM) var(--bezierFastoutSlowin);
-      }
-    }
-
-    &:hover::after,
-    &:active::after,
-    &:focus::after {
-      transform: scaleX(1) translateY(-1px);
-      transform-origin: left;
+    &:hover,
+    &:active,
+    &:focus,
+    &[aria-current='page'] {
+      color: var(--accent);
     }
 
     &[data-visible='true'] {

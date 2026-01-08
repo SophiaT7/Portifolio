@@ -73,6 +73,8 @@ export const Contact = () => {
               className={styles.divider}
               data-status={status}
               style={getDelay(tokens.base.durationXS, initDelay, 0.4)}
+              notchWidth="0"
+              notchHeight="0"
             />
             {/* Hidden honeypot field to identify bots */}
             <input type="text" name="_honey" style={{ display: 'none' }} />
