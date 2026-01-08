@@ -1,7 +1,7 @@
 import { Text } from '~/components/text';
 import { useReducedMotion } from 'framer-motion';
 import { classes, cssProps } from '~/utils/style';
-import { forwardRef } from 'react';
+import { forwardRef, useState, useEffect } from 'react';
 import styles from './loader.module.css';
 
 export const Loader = forwardRef(
@@ -10,8 +10,13 @@ export const Loader = forwardRef(
     ref
   ) => {
     const reduceMotion = useReducedMotion();
+    const [isHydrated, setIsHydrated] = useState(false);
 
-    if (reduceMotion) {
+    useEffect(() => {
+      setIsHydrated(true);
+    }, []);
+
+    if (isHydrated && reduceMotion) {
       return (
         <Text className={classes(styles.text, className)} weight="medium" {...rest}>
           {text}

@@ -101,6 +101,7 @@ export function ProjectSummary({
   function renderPreview(visible) {
     return (
       <div className={styles.preview}>
+        {/* Notebook e katakana comentados
         {model.type === 'laptop' && (
           <>
             {renderKatakana('laptop', visible)}
@@ -170,6 +171,7 @@ export function ProjectSummary({
             </div>
           </>
         )}
+        */}
       </div>
     );
   }

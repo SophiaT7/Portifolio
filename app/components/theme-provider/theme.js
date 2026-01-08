@@ -13,6 +13,7 @@ const baseTokens = {
   systemFontStack:
     'system-ui, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Ubuntu, Helvetica Neue, sans-serif',
   fontStack: `Gotham, var(--systemFontStack)`,
+  fontStackHeading: `Syncopate, var(--systemFontStack)`,
   monoFontStack:
     'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
   japaneseFontStack:

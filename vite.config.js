@@ -18,6 +18,9 @@ export default defineConfig({
   },
   server: {
     port: 7777,
+    watch: {
+      usePolling: true,
+    },
   },
   plugins: [
     mdx({

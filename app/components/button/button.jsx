@@ -10,9 +10,9 @@ function isExternalLink(href) {
   return href?.includes('://');
 }
 
-export const Button = forwardRef(({ href, ...rest }, ref) => {
-  if (isExternalLink(href) || !href) {
-    return <ButtonContent href={href} ref={ref} {...rest} />;
+export const Button = forwardRef(({ href, download, ...rest }, ref) => {
+  if (isExternalLink(href) || !href || download) {
+    return <ButtonContent href={href} download={download} ref={ref} {...rest} />;
   }
 
   return (
@@ -43,6 +43,7 @@ const ButtonContent = forwardRef(
       rel,
       target,
       href,
+      download,
       disabled,
       ...rest
     },
@@ -60,6 +61,7 @@ const ButtonContent = forwardRef(
         data-secondary={secondary}
         data-icon={icon}
         href={href}
+        download={download}
         rel={rel || isExternal ? 'noopener noreferrer' : undefined}
         target={target || isExternal ? '_blank' : undefined}
         disabled={disabled}

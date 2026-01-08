@@ -72,7 +72,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               <h1 className={styles.name} data-visible={visible} id={titleId}>
                 <DecoderText text={config.name} delay={500} />
               </h1>
-              <Heading level={0} as="h2" className={styles.title}>
+              <Heading level={2} as="h2" className={styles.title}>
                 <VisuallyHidden className={styles.label}>
                   {`${config.role} + ${introLabel}`}
                 </VisuallyHidden>
@@ -112,7 +112,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               </Heading>
             </header>
             <RouterLink
-              to="/#project-1"
+              to="/#project-3"
               className={styles.scrollIndicator}
               data-status={status}
               data-hidden={scrollIndicatorHidden}
@@ -121,7 +121,7 @@ export function Intro({ id, sectionRef, scrollIndicatorHidden, ...rest }) {
               <VisuallyHidden>Scroll to projects</VisuallyHidden>
             </RouterLink>
             <RouterLink
-              to="/#project-1"
+              to="/#project-3"
               className={styles.mobileScrollIndicator}
               data-status={status}
               data-hidden={scrollIndicatorHidden}

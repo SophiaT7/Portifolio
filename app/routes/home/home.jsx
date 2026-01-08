@@ -50,13 +50,13 @@ export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
-  const projectOne = useRef();
-  const projectTwo = useRef();
+  //const projectOne = useRef();
+  //const projectTwo = useRef();
   const projectThree = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, projectThree, details];
+    const sections = [intro, projectThree, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -98,7 +98,7 @@ export const Home = () => {
         sectionRef={intro}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
-      <ProjectSummary
+      {/*<ProjectSummary
         id="project-1"
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
@@ -142,19 +142,19 @@ export const Home = () => {
             },
           ],
         }}
-      />
+      />*/}
       <ProjectSummary
         id="project-3"
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
-        index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
+        index={1}
+        title="Sistema de Gerenciamento de Veículos - FROTA"
+        description="Sistema completo para controle e gestão de frotas de veículos com cadastro, manutenção e relatórios."
         buttonText="View project"
-        buttonLink="/projects/slice"
+        buttonLink="/projects/frota"
         model={{
           type: 'laptop',
-          alt: 'Annotating a biomedical image in the Slice app',
+          alt: 'Sistema Frota',
           textures: [
             {
               srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
