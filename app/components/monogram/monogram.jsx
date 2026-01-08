@@ -5,7 +5,8 @@ import styles from './monogram.module.css';
 
 export const Monogram = forwardRef(({ highlight, className, ...props }, ref) => {
   const { theme } = useTheme();
-  const logoSrc = theme === 'dark' ? '/logo-white.png' : '/logo-black.png';
+  const basePath = import.meta.env.BASE_URL || '/';
+  const logoSrc = theme === 'dark' ? `${basePath}logo-white.png` : `${basePath}logo-black.png`;
 
   return (
     <img

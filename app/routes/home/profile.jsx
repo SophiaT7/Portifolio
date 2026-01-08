@@ -1,6 +1,7 @@
-const profileImgLarge = '/profileLarge.jpeg';
-const profileImgPlaceholder = '/profileSmall.jpeg';
-const profileImg = '/profilePic.jpeg';
+const basePath = import.meta.env.BASE_URL || '/';
+const profileImgLarge = `${basePath}profileLarge.jpeg`;
+const profileImgPlaceholder = `${basePath}profileSmall.jpeg`;
+const profileImg = `${basePath}profilePic.jpeg`;
 import { Button } from '~/components/button';
 import { DecoderText } from '~/components/decoder-text';
 import { Divider } from '~/components/divider';
@@ -61,7 +62,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   secondary
                   className={styles.button}
                   data-visible={visible}
-                  href="/CV SOPHIA CAMARGO TERCETTE - IN.pdf"
+                  href={`${basePath}CV SOPHIA CAMARGO TERCETTE - IN.pdf`}
                   download
                   icon="arrow-right"
                 >

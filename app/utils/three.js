@@ -6,7 +6,8 @@ Cache.enabled = true;
 
 const dracoLoader = new DRACOLoader();
 const gltfLoader = new GLTFLoader();
-dracoLoader.setDecoderPath('/draco/');
+const basePath = typeof import.meta !== 'undefined' ? (import.meta.env?.BASE_URL || '/') : '/';
+dracoLoader.setDecoderPath(`${basePath}draco/`);
 gltfLoader.setDRACOLoader(dracoLoader);
 
 /**
